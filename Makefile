@@ -7,7 +7,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 LIB_DIR = lib
 TEST_DIR = tests
-TEST_BIN_DIR = test_bin
+TEST_BIN_DIR = bin_test
 
 # File extensions
 SRC_EXT = .cpp

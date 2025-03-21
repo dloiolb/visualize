@@ -17,7 +17,7 @@ project_example/
 ├── tests/	  # test files (.cpp)
 │   ├── test1.cpp
 │   └── test2.cpp
-├── testbin/	  # compiled test executables
+├── bin_test/	  # compiled test executables
 │   ├── test1 
 │   └── test2 
 │
