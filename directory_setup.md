@@ -2,16 +2,16 @@
 ```
 project_example/
 ├── src/	  # source files (.cpp, .h)
-│   ├── foo.cpp
-│   └── bar/
+│   ├── vector.cpp
+│   └── extra/
 │       └── bar.cpp
-├── include/	  # public headers (.h)
-│   └── foo.h
+├── inc/	  # public headers (.h)
+│   └── Linalg.h
 ├── obj/	  # compiled oject files (.o)
-│   └── foo.o
+│   └── vector.o
 ├── lib/	  # compiled libraries
 │   ├── libfoo.a  # static library
-│   └── libbar.so # dynamic library
+│   └── linalg.so # dynamic library
 │
 │
 ├── tests/	  # test files (.cpp)
@@ -23,7 +23,7 @@ project_example/
 │
 │
 ├── docs/	  # documentation
-│   └── project_overview.md
+│   └── overview.md
 ├── data/
 │   ├── input.txt
 │   └── config.json

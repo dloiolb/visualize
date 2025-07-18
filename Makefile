@@ -1,5 +1,5 @@
 # Compiler and flags
-CXX = g++
+CXX = g++-10 -std=c++17
 CXXFLAGS = -Wall -Wextra -o2 -fPIC -Iinclude
 
 # Directories

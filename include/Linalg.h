@@ -97,4 +97,6 @@ namespace Linalg {
 	double cos(float x, int M);
 }
 
+
+
 #endif

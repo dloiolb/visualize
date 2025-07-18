@@ -1,3 +1,7 @@
+## Python bindings
+ctypes
+
+## how to make
 Make library:
 ```
 make 
