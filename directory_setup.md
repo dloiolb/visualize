@@ -11,7 +11,10 @@ project_example/
 │   └── vector.o
 ├── lib/	  # compiled libraries
 │   ├── libfoo.a  # static library
-│   └── linalg.so # dynamic library
+│   └── linalg.so # dynamic library: to use for python binding
+├── python/
+│   ├── foo_binding.py # required to use for python binding
+│   └── extra.py
 │
 │
 ├── tests/	  # test files (.cpp)
