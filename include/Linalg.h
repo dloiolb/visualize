@@ -95,6 +95,62 @@ namespace Linalg {
 	Linalg::matrix matrix_transform(Linalg::matrix T, Linalg::matrix F);
 
 	double cos(float x, int M);
+
+
+
+
+
+
+
+	class tensor {
+	private:
+		std::vector<int> elements;
+		std::vector<std::vector<int> > elements2;
+		Field field;
+		//int dimension; //
+
+	public:
+		tensor() = default;
+		tensor(Field field, std::vector<int> args) : field(field), elements(args) { }
+		tensor(std::vector<int> args) : field(R), elements(args) { }
+		tensor(const std::vector<std::vector<int> >& args) : field(R), elements2(args) { }
+		tensor(int n) : field(R), elements(n, 0) { }
+
+		tensor(const Linalg::tensor& v) : elements(v.elements), field(v.field) {} //copy constructor
+		//vector(std::initializer_list<int> args) : elements(args) { } //variable number of elements
+
+		std::vector<int> get_tensor();
+		void show(); //print vector
+		void show2();
+		float norm(int p);
+		int dimension(); //return number of elements
+		int index(int i); //value of xi for x = [x1,x2,...,xn], i in {1,2,...,n}
+		void modify(int index, int value);
+		//friend vector operator+(Linalg::vector a, Linalg::vector b);
+		tensor& operator=(Linalg::tensor other);
+		//friend int dot(Linalg::vector a, Linalg::vector b);
+		//Linalg::vector cross(Linalg::vector a, Linalg::vector b);
+		int dimension_X();
+		int dimension_Y();
+
+	};
+
+	//Binary operations between two vectors. In order to compute, two vectors must belong to the same vector space.
+	int dot(Linalg::tensor v, Linalg::tensor u);
+	float metric(Linalg::tensor v, Linalg::tensor u);
+	tensor operator+(Linalg::tensor& v, Linalg::tensor& u);
+	tensor operator*(Linalg::tensor v, Linalg::tensor u);
+	// tensor operator%(Linalg::tensor v, Linalg::tensor u);
+	Linalg::tensor vector_add(Linalg::tensor v, Linalg::tensor u);
+
+	Linalg::tensor scalar_mult(int a, Linalg::tensor v); //real field
+	//Linalg::vector scalar_mult(double a, double b, Linalg::vector v); //complex field
+	
+	Linalg::tensor transpose(Linalg::tensor T);
+	Linalg::tensor vector_transform(Linalg::tensor v, Linalg::tensor T);
+	// Linalg::tensor matrix_transform(Linalg::tensor T, Linalg::matrix F);
+
+	double cos(float x, int M);
 }
 
 

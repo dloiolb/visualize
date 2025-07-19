@@ -11,13 +11,13 @@ int main() {
 	Linalg::vector_space W(Linalg::R, 3);
 	W.show();
 
-	Linalg::vector owo(W, { 1,2,3 });
+	Linalg::tensor owo({ 1,2,3 });
 
 
-	Linalg::vector uwu(W, { 2,6,2 });
-	Linalg::vector awa = Linalg::vector_add(owo, uwu);
-	Linalg::vector awa2 = owo + uwu;
-	Linalg::vector ewe(owo);
+	Linalg::tensor uwu({ 2,6,2 });
+	Linalg::tensor awa = Linalg::vector_add(owo, uwu);
+	Linalg::tensor awa2 = owo + uwu;
+	Linalg::tensor ewe(owo);
 	std::cout << "owo: "; owo.show();
 	std::cout << "uwu: "; uwu.show();
 	std::cout << "awa: "; awa.show();
@@ -33,17 +33,17 @@ int main() {
 	float cosine = Linalg::cos(80, 7);
 	std::cout << "cos(3.6): " << cosine << "\n";
 
-	Linalg::matrix T(V, W, { {1,2,3,7,6},
+	Linalg::tensor T({ {1,2,3,7,6},
 							   {0,0,0,1,1},
 							   {5,5,3,2,10} } );
-	T.show();
+	T.show2();
 
-	Linalg::vector v(V, { 1,2,-3,9,8 });
+	Linalg::tensor v({ 1,2,-3,9,8 });
 	std::cout << "v: "; v.show();
-	Linalg::vector va = Linalg::scalar_mult(3, v);
+	Linalg::tensor va = Linalg::scalar_mult(3, v);
 	std::cout << "va: "; va.show();
-	Linalg::vector Tv = Linalg::vector_transform(v, T);
-	std::cout << "Tv: "; Tv.show();
+	// Linalg::tensor Tv = Linalg::vector_transform(v, T);
+	// std::cout << "Tv: "; Tv.show();
 
 	//Linalg::vector aaa = { 1,2,3,7,7,10 };
 	//aaa.show();
