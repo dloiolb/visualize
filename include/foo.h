@@ -7,6 +7,8 @@ class Foo{
   public:
     void bar(){
       std::cout << "Hello from C++!" << std::endl;
+      int a = 123456 * 123456; // overflow
+      std::cout << a << std::endl;
     }
 };
 
