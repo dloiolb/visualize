@@ -43,7 +43,7 @@ $(TEST_BIN_DIR)/%: $(TEST_DIR)/%$(SRC_EXT) $(LIB_DIR)/$(LIB_NAME)$(LIB_EXT)
 
 # Clean object files, libraries, and executables
 clean:
-	rm -rf $(OBJ_DIR)/* $(LIB_DIR)/*
+	rm -rf $(OBJ_DIR)/* $(LIB_DIR)/*.so
 
 # Clean object files, libraries, and executables
 clean_test:

@@ -1,3 +1,7 @@
+# Info
+The library is written in C++ and compiled into a shared object (visualize.so).
+There are python files available to provide the python interface to the library (foo_binding.py, tensor_binding.py, etc).
+
 # Python Bindings
 ctypes
 

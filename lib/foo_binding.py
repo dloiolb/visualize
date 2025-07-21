@@ -1,6 +1,6 @@
 import ctypes
 
-_lib = ctypes.CDLL("../lib/full_lib.so")
+_lib = ctypes.CDLL("../lib/visualize.so")
 
 _lib.Foo_new.restype = ctypes.c_void_p
 _lib.Foo_bar.argtypes = [ctypes.c_void_p]

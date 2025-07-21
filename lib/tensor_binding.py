@@ -20,7 +20,7 @@ class tensor:
             raise TypeError("All elements of `shape` must be int")
         data_arr = (ctypes.c_double * len(data))(*data)
         shape_arr = (ctypes.c_int * len(shape))(*shape)
-        self.obj = _lib.tensor_new_from_data(
+        self.obj = _lib.tensor_new(
             data_arr, len(data),
             shape_arr, len(shape)
         )
