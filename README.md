@@ -20,7 +20,7 @@ new_project/
 ├── lib/
 │   ├── foo_binding.py
 │   ├── tensor_binding.py
-│   └── libtensor.so
+│   └── visualize.so
 ├── run_basic.py   // script that uses the library
 ```
 Then in run_basic.py use the following basic structure:
