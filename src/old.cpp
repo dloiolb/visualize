@@ -4,32 +4,32 @@
 #include <iostream>
 
 /*
-Linalg::vector_space
+visualize::vector_space
 public functions:
 */
 
-Linalg::Field Linalg::vector_space::get_field() {
+visualize::Field visualize::vector_space::get_field() {
 	return field;
 }
 
-void Linalg::vector_space::show() {
+void visualize::vector_space::show() {
 	std::cout << ((field == 0)? "R" : "C") << "^" << n << "\n";
 }
 
-int Linalg::vector_space::dimension() {
+int visualize::vector_space::dimension() {
 	return n;
 }
 
 /*
-Linalg::vector
+visualize::vector
 public functions:
 */
 
-std::vector<int> Linalg::vector::get_vector() {
+std::vector<int> visualize::vector::get_vector() {
 	return elements;
 }
 
-float Linalg::vector::norm(int p) {
+float visualize::vector::norm(int p) {
 	float sump = 0;
 	for (int elem : elements) {
 		sump += (float)pow(elem, p);
@@ -38,7 +38,7 @@ float Linalg::vector::norm(int p) {
 	return sump;
 }
 
-void Linalg::vector::show() {
+void visualize::vector::show() {
 	std::cout << "[ ";
 	for (int i = 0; i < dimension(); i++) {
 		if (i == dimension() - 1) std::cout << elements[i] << " ";
@@ -48,23 +48,23 @@ void Linalg::vector::show() {
 	V.show();
 	std::cout << "\n";
 }
-int Linalg::vector::dimension() {
+int visualize::vector::dimension() {
 	//return elements.size();
 	return V.dimension();
 }
-int Linalg::vector::index(int i) {
+int visualize::vector::index(int i) {
 	return elements[i];
 }
 
-void Linalg::vector::modify(int index, int value) {
+void visualize::vector::modify(int index, int value) {
 	elements[index] = value;
 }
 
 /*
-Operations on Linalg::vector:
+Operations on visualize::vector:
 */
 
-int Linalg::dot(Linalg::vector v, Linalg::vector u) {
+int visualize::dot(visualize::vector v, visualize::vector u) {
 	int dotprod = 0;
 	for (int i = 0; i < v.dimension(); i++) {
 		dotprod += v.index(i) * u.index(i);
@@ -72,8 +72,8 @@ int Linalg::dot(Linalg::vector v, Linalg::vector u) {
 	return dotprod;
 }
 
-float Linalg::metric(Linalg::vector v, Linalg::vector u) {
-	Linalg::vector x(v);
+float visualize::metric(visualize::vector v, visualize::vector u) {
+	visualize::vector x(v);
 	for (int i = 0; i < v.dimension(); i++) {
 		int sum = v.index(i) - u.index(i);
 		x.modify(i, sum);
@@ -81,8 +81,8 @@ float Linalg::metric(Linalg::vector v, Linalg::vector u) {
 	return x.norm(2);
 }
 
-Linalg::vector Linalg::vector_add(Linalg::vector v, Linalg::vector u) {
-	Linalg::vector x(v);
+visualize::vector visualize::vector_add(visualize::vector v, visualize::vector u) {
+	visualize::vector x(v);
 	for (int i = 0; i < v.dimension(); i++) {
 		int sum = v.index(i) + u.index(i);
 		x.modify(i, sum);
@@ -90,8 +90,8 @@ Linalg::vector Linalg::vector_add(Linalg::vector v, Linalg::vector u) {
 	return x;
 }
 
-Linalg::vector Linalg::operator+(Linalg::vector v, Linalg::vector u) {
-	Linalg::vector x = v;
+visualize::vector visualize::operator+(visualize::vector v, visualize::vector u) {
+	visualize::vector x = v;
 	for (int i = 0; i < v.dimension(); i++) {
 		int val = v.index(i) + u.index(i);
 		x.modify(i, val);
@@ -99,15 +99,15 @@ Linalg::vector Linalg::operator+(Linalg::vector v, Linalg::vector u) {
 	return x;
 }
 
-Linalg::vector& Linalg::vector::operator=(Linalg::vector other) {
+visualize::vector& visualize::vector::operator=(visualize::vector other) {
 	for (int elem : other.elements) {
 		this->elements.push_back(elem);
 	}
 	return *this;
 }
 
-Linalg::vector Linalg::scalar_mult(int a, Linalg::vector v) {
-	Linalg::vector x(v);
+visualize::vector visualize::scalar_mult(int a, visualize::vector v) {
+	visualize::vector x(v);
 	for (int i = 0; i < v.dimension(); i++) {
 		int mult = a*v.index(i);
 		x.modify(i, mult);
@@ -115,7 +115,7 @@ Linalg::vector Linalg::scalar_mult(int a, Linalg::vector v) {
 	return x;
 }
 
-//Linalg::vector scalar_mult(double a, double b, Linalg::vector v);
+//visualize::vector scalar_mult(double a, double b, visualize::vector v);
 
 //
 
@@ -127,7 +127,7 @@ double factorial(int n) {
 	return fact;
 }
 
-double Linalg::cos(float x, int M) {
+double visualize::cos(float x, int M) {
 
 	double approx = 0;
 	for (int i = 0; i < M; i++) {
@@ -139,15 +139,15 @@ double Linalg::cos(float x, int M) {
 //
 
 /*
-Linalg::matrix
+visualize::matrix
 public functions:
 */
 
-std::vector<std::vector<int> > Linalg::matrix::get_matrix() {
+std::vector<std::vector<int> > visualize::matrix::get_matrix() {
 	return elements;
 }
 
-void Linalg::matrix::show() {
+void visualize::matrix::show() {
 	std::cout << "[\n";
 	for (int i = 0; i < Y.dimension(); i++) {
 		std::cout << "[";
@@ -162,50 +162,50 @@ void Linalg::matrix::show() {
 	std::cout << "\n";
 }
 
-int Linalg::matrix::dimension_X() {
+int visualize::matrix::dimension_X() {
 	return X.dimension();
 }
 
-int Linalg::matrix::dimension_Y() {
+int visualize::matrix::dimension_Y() {
 	return Y.dimension();
 }
 
-Linalg::vector_space Linalg::matrix::get_X() {
+visualize::vector_space visualize::matrix::get_X() {
 	return X;
 }
 
-Linalg::vector_space Linalg::matrix::get_Y() {
+visualize::vector_space visualize::matrix::get_Y() {
 	return Y;
 }
 /*
-Linalg::matrix Linalg::transpose(Linalg::matrix T) {
+visualize::matrix visualize::transpose(visualize::matrix T) {
 
 }
 */
 
-Linalg::vector Linalg::vector_transform(Linalg::vector v, Linalg::matrix T) {
-	Linalg::vector columns(T.get_Y());
+visualize::vector visualize::vector_transform(visualize::vector v, visualize::matrix T) {
+	visualize::vector columns(T.get_Y());
 	for (int i = 0; i < T.dimension_Y(); i++) {
-		Linalg::vector temp(T.get_X(), T.get_matrix().at(i));
-		columns.modify(i, Linalg::dot(v, temp));
+		visualize::vector temp(T.get_X(), T.get_matrix().at(i));
+		columns.modify(i, visualize::dot(v, temp));
 	}
 	return columns;
 }
 
-Linalg::matrix matrix_transform(Linalg::matrix T, Linalg::matrix F);
+visualize::matrix matrix_transform(visualize::matrix T, visualize::matrix F);
 
 /*
-Linalg::vector cross(Linalg::vector a, Linalg::vector b) {
+visualize::vector cross(visualize::vector a, visualize::vector b) {
 }
 */
 
 /*
-Linalg::tensor
+visualize::tensor
 public functions:
 */
 
 
 
 /*
-Operations on Linalg::tensor:
+Operations on visualize::tensor:
 */

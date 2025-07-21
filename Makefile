@@ -15,7 +15,7 @@ OBJ.EXT = .o
 LIB_EXT = .so
 
 # Library name
-LIB_NAME = full_lib
+LIB_NAME = visualize
 
 # Sources and objects
 SRC_FILES = $(wildcard $(SRC_DIR)/*$(SRC_EXT))

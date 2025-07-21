@@ -10,10 +10,10 @@ project_example/
 ├── obj/	  # compiled oject files (.o)
 │   └── vector.o
 ├── lib/	  # compiled libraries
+│   ├── foo_binding.py # required to use for python binding
 │   ├── libfoo.a  # static library
 │   └── linalg.so # dynamic library: to use for python binding
 ├── python/
-│   ├── foo_binding.py # required to use for python binding
 │   └── extra.py
 │
 │
