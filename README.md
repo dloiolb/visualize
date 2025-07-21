@@ -1,7 +1,7 @@
 # Info
 The library is written in C++ and compiled into a shared object (visualize.so).
 There are python files available that provide the python interface to the library using ctypes (foo_binding.py, tensor_binding.py, etc). 
-Once compiled, the only files needed to use the library are the onces mentioned above.
+Once compiled, the only files needed to use the library are the ones mentioned above.
 They are stored in the ./lib/ directory.
 See the 'How to use library' below.
 
