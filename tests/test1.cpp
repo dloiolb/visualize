@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/Linalg.h"
+#include "../include/old.h"
 
 int main() {
 	std::cout << "-------test1.cpp-------\n\n\n";

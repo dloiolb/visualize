@@ -15,7 +15,7 @@ OBJ.EXT = .o
 LIB_EXT = .so
 
 # Library name
-LIB_NAME = linalg
+LIB_NAME = full_lib
 
 # Sources and objects
 SRC_FILES = $(wildcard $(SRC_DIR)/*$(SRC_EXT))
