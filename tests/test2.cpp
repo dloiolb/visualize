@@ -2,14 +2,7 @@
 #include "../include/Linalg.h"
 
 int main() {
-	std::cout << "test2.cpp\n\n\n";
-	Linalg::vector_space V(Linalg::R, 5);
-	V.show();
-	Linalg::vector_space U(V);
-	U.show();
-
-	Linalg::vector_space W(Linalg::R, 3);
-	W.show();
+	std::cout << "-------test2.cpp-------\n\n\n";
 
 	Linalg::tensor owo({ 1,2,3 });
 
@@ -47,4 +40,8 @@ int main() {
 
 	//Linalg::vector aaa = { 1,2,3,7,7,10 };
 	//aaa.show();
+
+	Linalg::tensor L({1,2,3,4,5,6}, {2,3});
+	int opa = L({1,0});
+	std::cout << "OPAOPAOPAO: " << opa << std::endl;
 }

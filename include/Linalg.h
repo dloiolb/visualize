@@ -109,6 +109,13 @@ namespace Linalg {
 		Field field;
 		//int dimension; //
 
+		std::vector<double> data; // flattened data in R^{n_1 x n_2 x ... x n_k}
+		std::vector<int> shape; // [n_1,n_2,...,n_k] - COMPUTED ONCE
+		int k;
+		std::vector<int> strides; // stride[j] = (\prod_{l=j+1}^k n_l) for j=1,...,k - COMPUTED ONCE
+		//idx(T[i_1][i_2]...[i_k]) = \sum_{j=1}^ki_j*(\prod_{l=j+1}^k n_l) = \sum_{j=1}^ki_j*strides[j]
+
+
 	public:
 		tensor() = default;
 		tensor(Field field, std::vector<int> args) : field(field), elements(args) { }
@@ -118,6 +125,30 @@ namespace Linalg {
 
 		tensor(const Linalg::tensor& v) : elements(v.elements), field(v.field) {} //copy constructor
 		//vector(std::initializer_list<int> args) : elements(args) { } //variable number of elements
+
+		tensor(const std::vector<double>& data, const std::vector<int>& shape) 
+			: data(data), shape(shape), k(shape.size()), strides(k)
+		{
+			compute_strides();
+		}
+		void compute_strides(){
+			int k = shape.size();
+			strides[k-1] = 1;
+			for(int l=k-2;l>=0;--l){
+				strides[l] = strides[l+1] * shape[l+1];
+			}
+		}
+		int index(const std::vector<int>& i){
+			int idx = 0;
+			int k = shape.size();
+			for(int j=0;j<k; ++j){
+				idx += i[j] * strides[j];
+			}
+			return idx;
+		}
+		double& operator()(const std::vector<int>& i){
+			return data[index(i)];
+		}
 
 		std::vector<int> get_tensor();
 		void show(); //print vector
