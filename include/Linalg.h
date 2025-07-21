@@ -104,28 +104,14 @@ namespace Linalg {
 
 	class tensor {
 	private:
-		std::vector<int> elements;
-		std::vector<std::vector<int> > elements2;
-		Field field;
-		//int dimension; //
-
 		std::vector<double> data; // flattened data in R^{n_1 x n_2 x ... x n_k}
 		std::vector<int> shape; // [n_1,n_2,...,n_k] - COMPUTED ONCE
-		int k;
+		int k; // k is number of n_l's - COMPUTED ONCE
 		std::vector<int> strides; // stride[j] = (\prod_{l=j+1}^k n_l) for j=1,...,k - COMPUTED ONCE
 		//idx(T[i_1][i_2]...[i_k]) = \sum_{j=1}^ki_j*(\prod_{l=j+1}^k n_l) = \sum_{j=1}^ki_j*strides[j]
 
-
 	public:
 		tensor() = default;
-		tensor(Field field, std::vector<int> args) : field(field), elements(args) { }
-		tensor(std::vector<int> args) : field(R), elements(args) { }
-		tensor(const std::vector<std::vector<int> >& args) : field(R), elements2(args) { }
-		tensor(int n) : field(R), elements(n, 0) { }
-
-		tensor(const Linalg::tensor& v) : elements(v.elements), field(v.field) {} //copy constructor
-		//vector(std::initializer_list<int> args) : elements(args) { } //variable number of elements
-
 		tensor(const std::vector<double>& data, const std::vector<int>& shape) 
 			: data(data), shape(shape), k(shape.size()), strides(k)
 		{
@@ -150,19 +136,19 @@ namespace Linalg {
 			return data[index(i)];
 		}
 
-		std::vector<int> get_tensor();
-		void show(); //print vector
-		void show2();
-		float norm(int p);
-		int dimension(); //return number of elements
-		int index(int i); //value of xi for x = [x1,x2,...,xn], i in {1,2,...,n}
-		void modify(int index, int value);
-		//friend vector operator+(Linalg::vector a, Linalg::vector b);
-		tensor& operator=(Linalg::tensor other);
-		//friend int dot(Linalg::vector a, Linalg::vector b);
-		//Linalg::vector cross(Linalg::vector a, Linalg::vector b);
-		int dimension_X();
-		int dimension_Y();
+		// std::vector<int> get_tensor();
+		// void show(); //print vector
+		// void show2();
+		// float norm(int p);
+		// int dimension(); //return number of elements
+		// int index(int i); //value of xi for x = [x1,x2,...,xn], i in {1,2,...,n}
+		// void modify(int index, int value);
+		// //friend vector operator+(Linalg::vector a, Linalg::vector b);
+		// tensor& operator=(Linalg::tensor other);
+		// //friend int dot(Linalg::vector a, Linalg::vector b);
+		// //Linalg::vector cross(Linalg::vector a, Linalg::vector b);
+		// int dimension_X();
+		// int dimension_Y();
 
 	};
 
