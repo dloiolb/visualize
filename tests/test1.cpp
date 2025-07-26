@@ -13,7 +13,6 @@ int main() {
 
 	visualize::vector owo(W, { 1,2,3 });
 
-
 	visualize::vector uwu(W, { 2,6,2 });
 	visualize::vector awa = visualize::vector_add(owo, uwu);
 	visualize::vector awa2 = owo + uwu;
@@ -33,9 +32,7 @@ int main() {
 	float cosine = visualize::cos(80, 7);
 	std::cout << "cos(3.6): " << cosine << "\n";
 
-	visualize::matrix T(V, W, { {1,2,3,7,6},
-							   {0,0,0,1,1},
-							   {5,5,3,2,10} } );
+	visualize::matrix T(V, W, { {1,2,3,7,6}, {0,0,0,1,1}, {5,5,3,2,10} } );
 	T.show();
 
 	visualize::vector v(V, { 1,2,-3,9,8 });
